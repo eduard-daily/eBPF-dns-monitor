@@ -14,14 +14,14 @@
 
 ## Table of Contents
 
-- [Introduction](#-introduction)
-- [Dependencies](#-dependencies)
-- [Usage](#-usage)
-- [Sample Output](#sample-output)
+- [Introduction](#introduction-)
+- [Dependencies](#dependencies-)
+- [Usage](#usage-)
+- [Logging](#logging-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## 🌼 Introduction
+##  Introduction 🌼
 
 Powerful monitoring tool focused on <b>DNS monitoring</b>, utilizes the power of eBPF and python to provide real-time monitoring and actionable insights for identifying and mitigating potential threats.
   
@@ -30,12 +30,12 @@ Based on open-source eBPF tool for DNS monitoring by [Nurkholish Halim](https://
 
 The source gist may be found [here](https://gist.github.com/oghie/b4e3accf1f87afcb939f884723e2b462).
   
- ## 🧵 Dependencies
+ ##  Dependencies 🧵
  ###### Installation
  
   `apt install python3-bpfcc bpfcc-tools libbpfcc linux-headers-$(uname -r)`
   
- ## ⚙ Usage
+ ##  Usage ⚙
   This tool captures outbound DNS requests and responces on a eBPF level.
 
 Run `python3 eBPF_dns_main.py` to get started. Note: based on your Linux kernel version, it may require sudo privileges.
@@ -51,7 +51,7 @@ The program is running. Press Ctrl-C to abort.
 COMM=dig PID=140623 TGID=140624 DEV=ens3 PROTO=TCP SRC=10.XX.20.37 DST=1.1.1.1 SPT=60687 DPT=53 UID=0 GID=0 DNS_QR=0 DNS_NAME=google.com. DNS_TYPE=A
 COMM=dig PID=140623 TGID=140624 DEV=ens3 PROTO=TCP SRC=1.1.1.1 DST=10.XX.20.37 SPT=53 DPT=60687 UID=0 GID=0 DNS_QR=1 DNS_NAME=google.com. DNS_TYPE=A DNS_DATA=172.217.160.206
 ```
-## 📃Logging
+##  Logging 📈
 
 The app will log all the request and responses to `/var/log/ebpf-dns-monitor.log` which can be easily monitored with Log management solutions(SIEM). 
 The datetime format is RFC 3339.
