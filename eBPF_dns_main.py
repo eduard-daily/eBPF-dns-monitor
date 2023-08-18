@@ -5,7 +5,7 @@ from bcc import BPF
 from socket import if_indextoname
 import logging
 
-logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', filename='/var/log/ebpf-dns-monitor.log', encoding='utf-8', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%Y-%m-%dT%H:%M:%SZ', filename='/var/log/ebpf-dns-monitor.log', encoding='utf-8', level=logging.INFO)
 
 
 C_BPF_KPROBE = """
