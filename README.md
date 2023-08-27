@@ -17,6 +17,7 @@
 - [Introduction](#introduction-)
 - [Dependencies](#dependencies-)
 - [Usage](#usage-)
+- [Running script as a systemd service](#running-script-as-a-systemd-service)
 - [Logging](#logging-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -51,7 +52,39 @@ The program is running. Press Ctrl-C to abort.
 COMM=dig PID=140623 TGID=140624 DEV=ens3 PROTO=TCP SRC=10.XX.20.37 DST=1.1.1.1 SPT=60687 DPT=53 UID=0 GID=0 DNS_QR=0 DNS_NAME=google.com. DNS_TYPE=A
 COMM=dig PID=140623 TGID=140624 DEV=ens3 PROTO=TCP SRC=1.1.1.1 DST=10.XX.20.37 SPT=53 DPT=60687 UID=0 GID=0 DNS_QR=1 DNS_NAME=google.com. DNS_TYPE=A DNS_DATA=172.217.160.206
 ```
-##  Logging 📈
+ ## Running script as a systemd service 
+ To set up script automatically run as a service, copy main script to the `/etc/ebpf-dns-monitor`, and the ebpf-dns-monitor.service to the `/etc/systemd/system/`
+
+Create a new folder under `/etc`:
+ ```
+ sudo mkdir /etc/ebpf-dns-monitor
+ ```
+Copy the main .py script to the folder
+ ```
+ cp ebpf-dns-main.py /etc/ebpf-dns-monitor/
+ ```
+Copy .service file to the `/etc/systemd/system/`
+ ```
+ cp ebpf-dns-monitor.service /etc/systemd/system/
+ ```
+Reload the daemon
+ ```
+ sudo systemctl daemon-reload
+ ```
+Now we can enable the new service
+ ```
+ sudo systemctl enable ebpf-dns-monitor.service
+ ```
+And start it
+ ```
+ sudo systemctl start ebpf-dns-monitor.service
+ ```
+To check the status
+ ```
+ sudo systemctl status ebpf-dns-monitor.service
+ ```
+
+ ##  Logging 📈
 
 The app will log all the request and responses to `/var/log/ebpf-dns-monitor.log` which can be easily monitored with Log management solutions(SIEM). 
 The datetime format is RFC 3339.
