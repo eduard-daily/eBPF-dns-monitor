@@ -39,18 +39,18 @@ The source gist may be found [here](https://gist.github.com/oghie/b4e3accf1f87af
  ##  Usage ⚙
   This tool captures outbound DNS requests and responces on a eBPF level.
 
-Run `python3 eBPF_dns_main.py` to get started. Note: based on your Linux kernel version, it may require sudo privileges.
+Run `python3 ebpf_dns_main.py` to get started. Note: based on your Linux kernel version, it may require sudo privileges.
 
 ```
-$ root@host:~/# python3 eBPF_dns_main.py
+$ root@host:~/# python3 ebpf_dns_main.py
 ```
 
 Sample Output:
 
 ```
 The program is running. Press Ctrl-C to abort.
-COMM=dig PID=140623 TGID=140624 DEV=ens3 PROTO=TCP SRC=10.XX.20.37 DST=1.1.1.1 SPT=60687 DPT=53 UID=0 GID=0 DNS_QR=0 DNS_NAME=google.com. DNS_TYPE=A
-COMM=dig PID=140623 TGID=140624 DEV=ens3 PROTO=TCP SRC=1.1.1.1 DST=10.XX.20.37 SPT=53 DPT=60687 UID=0 GID=0 DNS_QR=1 DNS_NAME=google.com. DNS_TYPE=A DNS_DATA=172.217.160.206
+2023-08-27T17:38:58Z COMM=systemd-resolve PID=645 TGID=645 DEV=ens33 PROTO=UDP SRC=192.168.40.2 DST=192.168.40.130 SPT=53 DPT=41890 UID=101 GID=103 DNS_QR=1 DNS_NAME=fastly-tls12-infra-api.eu.newrelic.com. DNS_TYPE=A DNS_DATA=185.221.87.29
+2023-08-27T17:38:58Z COMM=systemd-resolve PID=645 TGID=645 DEV=ens33 PROTO=UDP SRC=192.168.40.130 DST=192.168.40.2 SPT=58959 DPT=53 UID=101 GID=103 DNS_QR=0 DNS_NAME=fastly-tls12-infra-api.eu.newrelic.com. DNS_TYPE=AAAA
 ```
  ## Running script as a systemd service 
  To set up script automatically run as a service, copy main script to the `/etc/ebpf-dns-monitor`, and the ebpf-dns-monitor.service to the `/etc/systemd/system/`
