@@ -1,0 +1,11 @@
+[Unit]
+Description=Lightweight tool for DNS traffic monitor
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /etc/ebpf-dns-monitor/ebpf-dns-main.py
+
+[Install]
+WantedBy=multi-user.target
