@@ -57,32 +57,27 @@ COMM=dig PID=140623 TGID=140624 DEV=ens3 PROTO=TCP SRC=1.1.1.1 DST=10.XX.20.37 S
 
 Create a new folder under `/etc`:
  ```
- sudo mkdir /etc/ebpf-dns-monitor
+ sudo mkdir /etc/ebpf-dns-monitor.
  ```
-Copy the main .py script to the folder
+Copy the main .py script to the folder.
  ```
  cp ebpf-dns-main.py /etc/ebpf-dns-monitor/
  ```
-Copy .service file to the `/etc/systemd/system/`
+Copy .service file to the `/etc/systemd/system/`.
  ```
  cp ebpf-dns-monitor.service /etc/systemd/system/
  ```
-Reload the daemon
+Reload the daemon.
  ```
  sudo systemctl daemon-reload
  ```
-Now we can enable the new service
+Now we can enable the new service and start it.
  ```
  sudo systemctl enable ebpf-dns-monitor.service
- ```
-And start it
- ```
  sudo systemctl start ebpf-dns-monitor.service
- ```
-To check the status
- ```
  sudo systemctl status ebpf-dns-monitor.service
  ```
+
 
  ##  Logging 📈
 
