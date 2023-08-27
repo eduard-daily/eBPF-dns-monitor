@@ -49,8 +49,8 @@ Sample Output:
 
 ```
 The program is running. Press Ctrl-C to abort.
-2023-08-27T17:38:58Z COMM=systemd-resolve PID=645 TGID=645 DEV=ens33 PROTO=UDP SRC=192.168.40.2 DST=192.168.40.130 SPT=53 DPT=41890 UID=101 GID=103 DNS_QR=1 DNS_NAME=fastly-tls12-infra-api.eu.newrelic.com. DNS_TYPE=A DNS_DATA=185.221.87.29
-2023-08-27T17:38:58Z COMM=systemd-resolve PID=645 TGID=645 DEV=ens33 PROTO=UDP SRC=192.168.40.130 DST=192.168.40.2 SPT=58959 DPT=53 UID=101 GID=103 DNS_QR=0 DNS_NAME=fastly-tls12-infra-api.eu.newrelic.com. DNS_TYPE=AAAA
+2023-08-27T17:43:21Z COMM=dig PID=24146 TGID=24147 DEV=lo PROTO=UDP SRC=127.0.0.53 DST=127.0.0.1 SPT=53 DPT=48278 UID=1000 GID=1000 DNS_QR=1 DNS_NAME=visitukraine.today. DNS_TYPE=A DNS_DATA=104.21.71.200
+2023-08-27T17:43:21Z COMM=dig PID=24146 TGID=24147 DEV=lo PROTO=UDP SRC=127.0.0.53 DST=127.0.0.1 SPT=53 DPT=48278 UID=1000 GID=1000 DNS_QR=1 DNS_NAME=visitukraine.today. DNS_TYPE=A DNS_DATA=172.67.171.158
 ```
  ## Running script as a systemd service 
  To set up script automatically run as a service, copy main script to the `/etc/ebpf-dns-monitor`, and the ebpf-dns-monitor.service to the `/etc/systemd/system/`
