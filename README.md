@@ -34,7 +34,7 @@ The source gist may be found [here](https://gist.github.com/oghie/b4e3accf1f87af
  ##  Dependencies 🧵
  ###### Installation
  
-  `apt install python3-bpfcc bpfcc-tools libbpfcc linux-headers-$(uname -r)`
+  `apt install python3-dnslib python3-bpfcc bpfcc-tools libbpfcc linux-headers-$(uname -r)`
   
  ##  Usage ⚙
   This tool captures outbound DNS requests and responces on a eBPF level.
